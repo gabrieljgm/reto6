@@ -64,6 +64,19 @@ fun.impresion(cu.cuello_opcion4(),1)
 
 #print=input("\nAhora elije un nombre para tu hermosa criaturita!: ")
 
+lista_tempo=[]
+lista_tempo.append(lista)
+file=open("texto.txt","a",encoding="utf-8")
+for renglon in lista:
+    file.write("\n")
+    for config in renglon:
+        numero=config[0]   
+        caracter=config[1]
+        file.write(numero)
+        file.write(caracter)
+file.write("\n"+nombre)
+file.close()
+
 
 
 
