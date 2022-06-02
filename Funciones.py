@@ -7,6 +7,16 @@ def impresion(lista,num):
             print(numero*caracter,end="")
         print()
 
+def imprimir_avatar_archivo(lista):
+    for renglon in lista:
+        for dato in renglon:
+            if dato.isdigit():
+               numero=int(dato)
+               continue
+            else:   
+               caracter=dato
+            print(numero*caracter,end="")
+        print()
 
 def impresion_avatar(lista):
   for rostro in lista:
@@ -49,12 +59,12 @@ def leer_avatar_archivo(nombre):
       config=[]
       dato=""
       for caracter in line:
-        if "\n" in caracter or "Q" in caracter:
-          config.append(dato)
+        if "\n" in caracter: 
           continue
-       # elif "Q" in caracter:
-       #   config.append(dato)
-       #   continue 
+        elif "Q" in caracter:
+          config.append(dato)
+          dato=""
+          continue 
         else: 
           if caracter.isdigit():
             dato += caracter
@@ -62,7 +72,7 @@ def leer_avatar_archivo(nombre):
           else:
             dato = caracter
             continue
-          #config.append(dato)
       lista.append(config)
 
   file.close()
+  imprimir_avatar_archivo(lista)
