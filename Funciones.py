@@ -50,12 +50,14 @@ def leer_avatar_archivo(nombre):
   file=open("texto.txt","r",encoding="utf-8")
   file.readline()
   datafile = file.readlines()
+  encontro_usuario = False
   for line in datafile:
     if "INICIO" in line and nombre in line:
+      encontro_usuario = True
       continue
-    elif "FIN" in line:
+    elif "FIN" in line and nombre in line:
       break
-    else:
+    elif encontro_usuario:
       config=[]
       dato=""
       for caracter in line:
@@ -73,6 +75,11 @@ def leer_avatar_archivo(nombre):
             dato = caracter
             continue
       lista.append(config)
+    else:
+      continue
 
   file.close()
-  imprimir_avatar_archivo(lista)
+  if encontro_usuario:
+    imprimir_avatar_archivo(lista)
+  else:
+    print("Uyy tu jugador no existe!!")
