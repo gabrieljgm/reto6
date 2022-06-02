@@ -1,16 +1,15 @@
-import Cabellos as cab
-import Funciones as fun
-import OjosOrejas as ojor
-import Nariz as na
-import Boca as bo
-import Cuello as cu
+import cabellos as cab
+import funciones as fun
+import ojosorejas as ojor
+#import Nariz as na
+import boca as bo
+##mport Cuello as cu
 
 print("BIENVENIDO AL JUEGO. PARA CONTINUAR DEBES SELECCIONAR TU AVATAR\n\n")
 
 print("SELECCIONE SU TIPO DE CABELLO: \n")
 print("1.Gorro de Lana:\n")	
-lista=cab.cabello_opcion1()
-pelo_e=fun.impresion(lista,1)
+fun.impresion(cab.cabello_opcion1(),1)
 print("\n2. Punkero:\n")
 fun.impresion(cab.cabello_opcion2(),1)
 print("\n3. Pluma Blanca:\n")
@@ -18,115 +17,46 @@ fun.impresion(cab.cabello_opcion3(),1)
 print("\n4. Alemán:\n")
 fun.impresion(cab.cabello_opcion4(),1)
 
-print("\nSELECCIONE SU TIPO DE OJOS Y OREJAS: \n")
-print("1.Bravo:\n")	
-lista=ojor.ojo_opcion1()
-pelo_e=fun.impresion(lista,1)
-print("\n2. Magnifico:\n")
+opcion=int(input("Ingresa la opción"))
+lista_tempo=[]
+if opcion == 1:
+    lista_tempo.append(cab.cabello_opcion1())
+elif opcion == 2:
+    lista_tempo.append(cab.cabello_opcion2())
+elif opcion == 3:
+    lista_tempo.append(cab.cabello_opcion3())
+else:
+    lista_tempo.append(cab.cabello_opcion4())
+
+
+print("SELECCIONE SU TIPO DE OJOS: \n")
+print("1.Gorro de Lana:\n")	
+fun.impresion(ojor.ojo_opcion1(),1)
+print("\n2. Punkero:\n")
 fun.impresion(ojor.ojo_opcion2(),1)
-print("\n3. Tuerto:\n")
+print("\n3. Pluma Blanca:\n")
 fun.impresion(ojor.ojo_opcion3(),1)
-print("\n4. Sorpresa:\n")
+print("\n4. Alemán:\n")
 fun.impresion(ojor.ojo_opcion4(),1)
 
-print("\nSELECCIONE SU TIPO DE NARIZ: \n")
-print("1.Ñata:\n")	
-lista=na.nariz_opcion1()
-pelo_e=fun.impresion(lista,1)
-print("\n2. Redonda:\n")
-fun.impresion(na.nariz_opcion2(),1)
-print("\n3. Gato:\n")
-fun.impresion(na.nariz_opcion3(),1)
-print("\n4. Perfecta:\n")
-fun.impresion(na.nariz_opcion4(),1)
+opcion=int(input("Ingresa la opción"))
+print()
+if opcion == 1:
+    lista_tempo.append(ojor.ojo_opcion1())
+elif opcion == 2:
+    lista_tempo.append(ojor.ojo_opcion2())
+elif opcion == 3:
+    lista_tempo.append(ojor.ojo_opcion3())
+else:
+    lista_tempo.append(ojor.ojo_opcion4())
 
-print("\nSELECCIONE SU TIPO DE BOCA: \n")
-print("1.Ancha:\n")	
-lista=bo.boca_opcion1()
-pelo_e=fun.impresion(lista,1)
-print("\n2. Corazón:\n")
-fun.impresion(bo.boca_opcion2(),1)
-print("\n3. Súper U:\n")
-fun.impresion(bo.boca_opcion3(),1)
-print("\n4. Saca Lenguas:\n")
-fun.impresion(bo.boca_opcion4(),1)
+print("---------------------------")
+print("ASI VA TU MUÑECO")
+print(fun.impresion_avatar(lista_tempo))
 
-print("\nSELECCIONE SU TIPO DE CUELLO: \n")
-print("1.Rayadilo:\n")	
-lista=cu.cuello_opcion1()
-pelo_e=fun.impresion(lista,1)
-print("\n2. Nebuloso:\n")
-fun.impresion(cu.cuello_opcion2(),1)
-print("\n3. Arlequín U:\n")
-fun.impresion(cu.cuello_opcion3(),1)
-print("\n4. Moradito:\n")
-fun.impresion(cu.cuello_opcion4(),1)
+nombre=input("\nAhora elije un nombre para tu hermosa criaturita!: ")
 
-#print=input("\nAhora elije un nombre para tu hermosa criaturita!: ")
+fun.grabar_avatar_archivo(lista_tempo,nombre)
 
-lista_tempo=[]
-lista_tempo.append(lista)
-file=open("texto.txt","a",encoding="utf-8")
-for renglon in lista:
-    file.write("\n")
-    for config in renglon:
-        numero=config[0]   
-        caracter=config[1]
-        file.write(numero)
-        file.write(caracter)
-file.write("\n"+nombre)
-file.close()
-
-
-
-
-
-
-lista=cab.cabello_opcion1()
-pelo_e=fun.impresion(lista,1)
-lista=ojor.ojo_opcion1()
-pelo_e=fun.impresion(lista,1)
-lista=na.nariz_opcion1()
-pelo_e=fun.impresion(lista,1)
-lista=bo.boca_opcion1()
-pelo_e=fun.impresion(lista,1)
-lista=cu.cuello_opcion1()
-pelo_e=fun.impresion(lista,1)
-
-
-
-lista=cab.cabello_opcion2()
-pelo_e=fun.impresion(lista,1)
-lista=ojor.ojo_opcion2()
-pelo_e=fun.impresion(lista,1)
-lista=na.nariz_opcion2()
-pelo_e=fun.impresion(lista,1)
-lista=bo.boca_opcion2()
-pelo_e=fun.impresion(lista,1)
-lista=cu.cuello_opcion2()
-pelo_e=fun.impresion(lista,1)
-
-lista=cab.cabello_opcion3()
-pelo_e=fun.impresion(lista,1)
-lista=ojor.ojo_opcion3()
-pelo_e=fun.impresion(lista,1)
-lista=na.nariz_opcion3()
-pelo_e=fun.impresion(lista,1)
-lista=bo.boca_opcion3()
-pelo_e=fun.impresion(lista,1)
-lista=cu.cuello_opcion3()
-pelo_e=fun.impresion(lista,1)
-
-lista=cab.cabello_opcion4()
-pelo_e=fun.impresion(lista,1)
-lista=ojor.ojo_opcion4()
-pelo_e=fun.impresion(lista,1)
-lista=na.nariz_opcion4()
-pelo_e=fun.impresion(lista,1)
-lista=bo.boca_opcion4()
-pelo_e=fun.impresion(lista,1)
-lista=cu.cuello_opcion4()
-pelo_e=fun.impresion(lista,1)
-
-
-
+nombre=input("--Ingresa tu nombre de jugador---")
+fun.leer_avatar_archivo(nombre)
